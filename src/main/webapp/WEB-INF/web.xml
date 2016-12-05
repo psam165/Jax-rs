@@ -8,6 +8,18 @@
   	<listener>
   		<listener-class>jetty.jersey.context.JerseyLogListener</listener-class>
   	</listener>
+  	<context-param>
+    <param-name>resteasy.scan</param-name>
+    <param-value>false</param-value>
+</context-param>
+<context-param>
+    <param-name>resteasy.scan.providers</param-name>
+    <param-value>false</param-value>
+</context-param>
+<context-param>
+    <param-name>resteasy.scan.resources</param-name>
+    <param-value>false</param-value>
+</context-param>
   <servlet>
   
   	<servlet-name>jersey</servlet-name>

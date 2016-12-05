@@ -45,6 +45,6 @@
 	</dependencies>
 	
 	<build>
-		<finalName>jax-rs</finalName>
+		<finalName>Jax-rs</finalName>
 	</build>
 </project>

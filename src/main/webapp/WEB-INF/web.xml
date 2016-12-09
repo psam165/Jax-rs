@@ -5,9 +5,7 @@
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
   
-  	<listener>
-  		<listener-class>jetty.jersey.context.JerseyLogListener</listener-class>
-  	</listener>
+  	
   	<context-param>
     <param-name>resteasy.scan</param-name>
     <param-value>false</param-value>
@@ -20,11 +18,14 @@
     <param-name>resteasy.scan.resources</param-name>
     <param-value>false</param-value>
 </context-param>
+<listener>
+  		<listener-class>jetty.jersey.context.JerseyLogListener</listener-class>
+  	</listener>
   <servlet>
   
   	<servlet-name>jersey</servlet-name>
   	<servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
-  	<load-on-startup>1</load-on-startup>
+  	
   	 <init-param>
         <param-name>jersey.config.server.provider.packages</param-name>
         <param-value>jetty.jersey</param-value>
@@ -33,6 +34,7 @@
             <param-name>jersey.config.server.provider.classnames</param-name>
             <param-value>org.glassfish.jersey.filter.LoggingFilter</param-value>
         </init-param>
+        <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
   	<servlet-name>jersey</servlet-name>

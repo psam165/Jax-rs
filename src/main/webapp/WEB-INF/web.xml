@@ -4,8 +4,6 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
-  
-  	
   	<context-param>
     <param-name>resteasy.scan</param-name>
     <param-value>false</param-value>
@@ -35,9 +33,17 @@
             <param-value>org.glassfish.jersey.filter.LoggingFilter</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
+        
   </servlet>
   <servlet-mapping>
   	<servlet-name>jersey</servlet-name>
   	<url-pattern>/rest/*</url-pattern>
   </servlet-mapping>
+  <security-constraint>
+  	<web-resource-collection>
+  	<web-resource-name>rest</web-resource-name>
+  		<url-pattern>/rest/*</url-pattern>
+  	</web-resource-collection>
+  	<user-data-constraint><transport-guarantee>CONFIDENTIAL</transport-guarantee></user-data-constraint>
+  </security-constraint>
 </web-app>

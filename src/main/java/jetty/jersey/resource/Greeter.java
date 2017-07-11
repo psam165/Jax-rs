@@ -5,7 +5,10 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
+import io.swagger.annotations.Api;
+
 @Path("/Greet")
+@Api(value="/Greet", produces="text/plain")
 public class Greeter {
 	
 	@GET

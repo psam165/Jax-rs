@@ -26,7 +26,9 @@
   	
   	 <init-param>
         <param-name>jersey.config.server.provider.packages</param-name>
-        <param-value>jetty.jersey</param-value>
+        <param-value> io.swagger.jaxrs.listing,
+        jetty.jersey</param-value>
+       
     </init-param>
      <init-param>
             <param-name>jersey.config.server.provider.classnames</param-name>
@@ -35,15 +37,36 @@
         <load-on-startup>1</load-on-startup>
         
   </servlet>
+  
+  
+   <servlet>
+        <servlet-name>Jersey2Config</servlet-name>
+        <servlet-class>io.swagger.jersey.config.JerseyJaxrsConfig</servlet-class>
+        <init-param>
+            <param-name>api.version</param-name>
+            <param-value>1.0.0</param-value>
+        </init-param>
+        <init-param>
+            <param-name>swagger.api.basepath</param-name>
+            <param-value>http://localhost:8080/Jax-rs/api</param-value>
+        </init-param>
+        <load-on-startup>2</load-on-startup>
+    </servlet>
+  
+  
   <servlet-mapping>
   	<servlet-name>jersey</servlet-name>
   	<url-pattern>/rest/*</url-pattern>
   </servlet-mapping>
-  <security-constraint>
+  <servlet-mapping>
+  	<servlet-name>jersey</servlet-name>
+  	<url-pattern>/api/*</url-pattern>
+  </servlet-mapping>
+ <!--  <security-constraint>
   	<web-resource-collection>
   	<web-resource-name>rest</web-resource-name>
   		<url-pattern>/rest/*</url-pattern>
   	</web-resource-collection>
   	<user-data-constraint><transport-guarantee>CONFIDENTIAL</transport-guarantee></user-data-constraint>
-  </security-constraint>
+  </security-constraint> -->
 </web-app>

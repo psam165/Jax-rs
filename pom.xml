@@ -7,6 +7,7 @@
 	<version>1.0-SNAPSHOT</version>
 	<name>jetty-rs Maven Webapp</name>
 	<url>http://maven.apache.org</url>
+	
 	<dependencies>
 		<dependency>
 			<groupId>org.glassfish.jersey.containers</groupId>
@@ -41,10 +42,32 @@
 	<artifactId>servlet-api</artifactId>
 	<version>2.5</version>
 </dependency>
-		
+<!--  swagger jersey2 dependency -->
+<dependency>
+  <groupId>io.swagger</groupId>
+  <artifactId>swagger-jersey2-jaxrs</artifactId>
+  <version>1.5.0</version>
+</dependency>
+<!-- I dont know but jboss is depending on guava so i have to add this -->
+<dependency>
+    <groupId>com.google.guava</groupId>
+    <artifactId>guava</artifactId>
+    <version>19.0</version>
+</dependency>		
 	</dependencies>
 	
 	<build>
 		<finalName>Jax-rs</finalName>
+		<plugins>
+		   <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.6.1</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+		</plugins>
 	</build>
 </project>
